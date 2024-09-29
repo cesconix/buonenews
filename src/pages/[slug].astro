@@ -33,6 +33,8 @@ const fallbackSeo = globalSeo?.fallbackSeo || {};
 
 const title = page.seo?.title || fallbackSeo.title || "";
 const description = page.seo?.description || fallbackSeo.description || "";
+
+console.log("page", page);
 ---
 <PageLayout 
   title={`${title} - ${titleSuffix}`}
