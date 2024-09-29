@@ -5,7 +5,6 @@ import {
   type PromptFragment,
   PublicationDocument,
   type PublicationFragment,
-  type ResponsiveImage,
   SiteDocument,
 } from "@/codegen/graphql";
 import { createGraphQLClient } from "@/utils";

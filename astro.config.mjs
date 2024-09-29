@@ -13,7 +13,6 @@ export default defineConfig({
   output: "server",
   adapter: vercel({
     isr: { expiration: 30 },
-    edgeMiddleware: true,
   }),
   image: {
     domains: ["www.datocms-assets.com"],
