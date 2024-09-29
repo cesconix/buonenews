@@ -9,10 +9,11 @@ import * as datocms from "@/utils/datocms";
 import { StructuredText } from "@datocms/astro/StructuredText";
 import type { InferGetStaticPropsType } from "astro";
 
-export const prerender = false;
+export const prerender = true;
 
 export const getStaticPaths = async () => {
   const pages = await datocms.fetchPages();
+  console.log("getStaticPaths", pages);
 
   return pages.map((page) => {
     return {
