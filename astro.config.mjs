@@ -3,24 +3,22 @@ import { defineConfig } from "astro/config";
 
 import tailwind from "@astrojs/tailwind";
 
-import vercel from "@astrojs/vercel/serverless";
-
 import react from "@astrojs/react";
+
+import netlify from "@astrojs/netlify";
 
 // https://astro.build/config
 export default defineConfig({
   integrations: [tailwind(), react()],
-  output: "server",
-  adapter: vercel({
-    isr: {
-      bypassToken: import.meta.env.VERCEL_BYPASS_TOKEN,
-      expiration: 30,
-    },
-  }),
+
   image: {
     domains: ["www.datocms-assets.com"],
   },
+
   redirects: {
     "/": "/home",
   },
+
+  output: "server",
+  adapter: netlify(),
 });
