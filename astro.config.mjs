@@ -12,7 +12,10 @@ export default defineConfig({
   integrations: [tailwind(), react()],
   output: "server",
   adapter: vercel({
-    isr: { expiration: 30 },
+    isr: {
+      bypassToken: import.meta.env.VERCEL_BYPASS_TOKEN,
+      expiration: 30,
+    },
   }),
   image: {
     domains: ["www.datocms-assets.com"],
