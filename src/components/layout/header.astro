@@ -1,16 +1,15 @@
 ---
 import type { PageFragment } from "@/codegen/graphql";
 import Logo from "./logo.astro";
-import Navbar from "./navbar";
+// import Navbar from "./navbar";
 
 interface Props {
   pages: PageFragment[];
 }
 
-const pages = Astro.props.pages.filter((page) => !page.hidden);
+// const pages = Astro.props.pages.filter((page) => !page.hidden);
 ---
 <div class="flex justify-between items-center gap-6 overflow-auto py-3 px-6">
   <Logo />
-
-  <Navbar client:load pages={pages} />
+  <!-- <Navbar client:load pages={pages} /> -->
 </div>
