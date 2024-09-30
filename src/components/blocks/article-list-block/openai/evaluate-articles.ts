@@ -40,19 +40,24 @@ export const evaluateArticles = async (
     {} as Record<string, ChatAnswer>,
   );
 
-  return articles.map((article) => {
-    const aiAnswer = aiAnswers[article.title];
+  return articles
+    .filter((article) => aiAnswers[article.title])
+    .map((article) => {
+      const aiAnswer = aiAnswers[article.title];
+      console.log("");
+      console.log(article.title);
+      console.log(Object.keys(aiAnswers).at(0));
 
-    if (!aiAnswer) {
-      const errrorMessage = `Failed to find AI Answer for article "${article.title}"`;
-      console.error(errrorMessage);
-      throw new Error(errrorMessage);
-    }
+      if (!aiAnswer) {
+        const errrorMessage = `Failed to find AI Answer for article "${article.title}"`;
+        console.error(errrorMessage);
+        throw new Error(errrorMessage);
+      }
 
-    return {
-      article,
-      sentiment: aiAnswer.sentiment,
-      comment: aiAnswer.comment,
-    };
-  });
+      return {
+        article,
+        sentiment: aiAnswer.sentiment,
+        comment: aiAnswer.comment,
+      };
+    });
 };
